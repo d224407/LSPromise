@@ -113,9 +113,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.main);
         var rootView = findViewById(android.R.id.content);
         rootView.setOnApplyWindowInsetsListener((v, insets) -> {
-            var systemBars = insets.getInsets(WindowInsets.Type.systemBars());
-            v.setPadding(0, systemBars.top, 0, 0);
+            int statusBarHeight = insets.getSystemWindowInsetTop();
+            v.setPadding(0, statusBarHeight, 0, 0);
             return insets;
+        });
         });
         telecomManager = getSystemService(TelecomManager.class);
         phoneAccountHandle = new PhoneAccountHandle(new ComponentName(this, MyConnectionService.class), "LSPromise");
