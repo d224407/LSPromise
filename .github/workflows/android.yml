@@ -38,7 +38,7 @@ jobs:
             > keystore.properties
 
       - name: Build debug + release APK
-        run: ./gradlew assembleDebug assembleRelease
+        run: ./gradlew assembleRelease --no-daemon
 
       - name: Upload APKs
         uses: actions/upload-artifact@v4
