@@ -37,7 +37,7 @@ jobs:
             "$RUNNER_TEMP/release.jks" "$KEYSTORE_PASSWORD" "$KEYSTORE_ALIAS" "$KEYSTORE_PASSWORD" \
             > keystore.properties
 
-      - name: Build debug + release APK
+      - name: Build release APK
         run: ./gradlew assembleRelease --no-daemon
 
       - name: Upload APKs
